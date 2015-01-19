@@ -41,7 +41,9 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         $restRoute = new Vreasy_Rest_Route(
             Zend_Controller_Front::getInstance(),
             ['module' => 'vreasy'],
-            ['vreasy' => ['task',]
+            // We add the Twilio Controller, otherwise we'll get an error and the Functional Tests won't pass :
+            // "Invalid Controller Specified"...
+            ['vreasy' => ['task','twilio']
         ]);
         Zend_Controller_Front::getInstance()->getRouter()->addRoute(
             'vreasy',

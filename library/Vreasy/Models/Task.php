@@ -13,17 +13,31 @@ class Task extends Base
     protected $assigned_phone;
     protected $created_at;
     protected $updated_at;
+    // We add the protected attribute matching the State column, within the Tasks table
+    protected $state;
+    // We do the same for "Refused_At", Accepted_At" and "Completed_At" (cf Log History)
+    protected $refused_at;
+    protected $accepted_at;
+    protected $completed_at;
+
+    // We add constant strings to refer to the different possible states
+    const STATE_PENDING = "Pending";
+    const STATE_ACCEPTED = "Accepted";
+    const STATE_REFUSED = "Refused";
+    const STATE_COMPLETED = "Completed";
 
     public function __construct()
     {
         // Validation is done run by Valitron library
+        // We add the state validation
+
         $this->validates(
             'required',
-            ['deadline', 'assigned_name', 'assigned_phone']
+            ['deadline', 'assigned_name', 'assigned_phone', 'state']
         );
         $this->validates(
             'date',
-            ['created_at', 'updated_at']
+            ['created_at', 'updated_at', 'refused_at', 'accepted_at', 'completed_at']
         );
         $this->validates(
             'integer',

@@ -26,4 +26,12 @@ angular.module('taskConfirmationApp',  ['ui.router', 'ngResource'])
 })
 .controller('TaskCtrl', function($scope, Task) {
     $scope.tasks = Task.query();
+
+    $scope.currentTask = null;
+
+    $scope.setTask = function(id) {
+        $scope.currentTask = $scope.tasks[id-1];
+
+    }
+
 });

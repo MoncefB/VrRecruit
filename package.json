@@ -14,6 +14,8 @@
   "gitHead": "b437de764b567462f8e0a702495337076cb8654f",
   "readmeFilename": "README.md",
   "devDependencies": {
+  	"tmp": "0.0.23",
+    "bower": "1.2.8",
     "karma": "~0.11",
     "karma-jasmine": "~0.1.0",
     "karma-ng-html2js-preprocessor": "~0.1.0",

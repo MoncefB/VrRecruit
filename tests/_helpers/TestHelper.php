@@ -30,6 +30,8 @@ class TestHelper extends \Codeception\Util\Framework
                 'deadline' => gmdate(DATE_FORMAT),
                 'assigned_phone' => '+34666666666',
                 'assigned_name' => 'John Doe',
+                'state' => 'Pending',
+                
             ],
             $params
         );
